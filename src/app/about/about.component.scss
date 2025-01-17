@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.greetings {
+  text-align: center;
+  color: white;
+  width: 80%;
+  h1 {
+    font-size: 60px;
+  }
+  p {
+    font-size: 23px;
+  }
+}

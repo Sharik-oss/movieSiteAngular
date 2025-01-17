@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <div class="greetings">
+    <h1>{{ "greetingsAbout" | translate }}</h1>
+    <p>
+      {{ "aboutHeader" | translate }}
+    </p>
+  </div>
+  <app-card
+    [image]="'1.png'"
+    [description]="'quality' | translate"
+    data-aos="fade-up"
+  ></app-card>
+
+  <app-card
+    [image]="'2.png'"
+    [description]="'dolbyVision' | translate"
+    [cardStyle]="'reverse'"
+    data-aos="fade-left"
+  ></app-card>
+
+  <app-card
+    [image]="'3.png'"
+    [description]="'dolbyAudio' | translate"
+    data-aos="fade-down"
+  ></app-card>
+</div>

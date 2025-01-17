@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <ng-container *ngFor="let movie of movies">
+      <div class="movieCard" *ngIf="movie.category !== 'Сериал' && movie.poster && movie.original_name">
+        <div class="movieImg">
+          <img [src]="movie.poster" [alt]="movie.original_name" />
+        </div>
+        <div class="movieTitle">
+          <p>{{ movie.original_name }}</p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  

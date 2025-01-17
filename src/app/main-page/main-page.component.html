@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="img-slider">
+    <img
+      *ngFor="let image of firstImages; let i = index"
+      [src]="image.img"
+      [ngClass]="{ active: i === currentIndex }"
+    />
+  </div>
+  <div class="img-slider-2">
+    <img
+      *ngFor="let image of secondImages; let i = index"
+      [src]="image.img"
+      [ngClass]="{ active: i === currentIndex }"
+    />
+  </div>
+  <div class="swiper">
+    <app-swiper [header]="'top' | translate" page="page-1000.json"></app-swiper>
+    <app-swiper
+      [header]="'popular' | translate"
+      page="page-1004.json"
+    ></app-swiper>
+    <app-swiper [header]="'4k' | translate" page="page-1005.json"></app-swiper>
+  </div>
+</div>

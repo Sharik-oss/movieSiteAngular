@@ -1,0 +1,61 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #15161a;
+    color: white;
+    flex-direction: row;
+    gap: 30px;
+    position: absolute;
+    z-index: 3;
+    top:0;
+    left:0;
+    height: 80px;
+    width: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        left: 50px;
+        gap: 20px;
+        &:hover{
+            cursor: pointer;
+        }
+        img {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .authorization{
+        position: absolute;
+        right: 50px;
+        font-size: 23px;
+       
+    }
+
+    .links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        font-size: 23px;
+    }
+}
+
+ul:hover {
+    cursor: pointer;
+    text-decoration-line: underline;
+}
+
+a{
+    color: white;
+    text-decoration-line: none;
+}
+
+span{
+    color: green;
+}
