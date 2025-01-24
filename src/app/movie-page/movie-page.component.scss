@@ -1,8 +1,10 @@
 .movie-page {
-    height: 100vh;
-
-    .movie {
-        height: 100%;
-
-    }
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .movie {
+    height: 100%;
+    width: 60%;
+  }
 }
