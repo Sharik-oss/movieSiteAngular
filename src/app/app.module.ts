@@ -13,6 +13,8 @@ import { provideTranslation } from '../provideTranslation';
 import { FooterComponent } from './footer/footer.component';
 import { register } from 'swiper/element/bundle';
 import { MoviePageComponent } from './movie-page/movie-page.component';
+import { KinoboxplayerComponent } from './kinoboxplayer/kinoboxplayer.component';
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 
 register();
 
@@ -21,23 +23,26 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-    declarations: [
-      AppComponent,
-      HeaderComponent,
-      MoviesListComponent,
-      AboutComponent,
-      CardComponent,
-      FooterComponent,
-      MoviePageComponent,
-    ],
-    imports: [
-      BrowserModule,
-      AppRoutingModule,
-      TranslateModule.forRoot(provideTranslation()),
-    ],
-    providers: [provideHttpClient()],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    bootstrap: [AppComponent],
-  })
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    MoviesListComponent,
+    AboutComponent,
+    CardComponent,
+    FooterComponent,
+    KinoboxplayerComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MoviePageComponent,
+    TranslateModule.forRoot(provideTranslation()),
+    MoviePageComponent,
+
+  ],
+  providers: [provideHttpClient(), provideAnimationsAsync()],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent]
+})
   export class AppModule {}
-  
+
