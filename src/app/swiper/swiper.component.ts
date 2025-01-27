@@ -6,12 +6,9 @@ import {
   Input,
   AfterViewInit,
 } from '@angular/core';
-import Swiper from 'swiper';
-import { Navigation, Pagination } from 'swiper/modules';
 import { CommonModule } from '@angular/common';
 import { PopularService } from '../services/popular.service';
 
-Swiper.use([Navigation, Pagination]);
 
 @Component({
   selector: 'app-swiper',

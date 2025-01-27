@@ -2,7 +2,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { PopularService } from '../services/popular.service';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { SwiperComponent } from '../swiper/swiper.component';
+import {SwiperComponent} from '../swiper/swiper.component';
 
 @Component({
   selector: 'app-main-page',

@@ -39,8 +39,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/swiper/swiper-bundle.css"
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/process/browser.js"

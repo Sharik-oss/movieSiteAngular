@@ -11,10 +11,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateModule} from '@ngx-translate/core';
 import {provideTranslation} from '../provideTranslation';
 import {FooterComponent} from './footer/footer.component';
-import {register} from 'swiper/element/bundle';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 
-register();
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'i18n/', '.json');

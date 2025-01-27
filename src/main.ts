@@ -1,9 +1,7 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
-import { register as registerSwiperElements } from 'swiper/element/bundle';
 
 // Register Swiper custom elements
-registerSwiperElements();
 
 // Polyfills for WebTorrent
 (window as any).global = window;
