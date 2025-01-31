@@ -3,8 +3,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  width: 100%;
   .movie {
     height: 100%;
-    width: 60%;
+    width: 50%;
+    position: relative;
+    top: 190px;
+  }
+}
+
+
+.main-info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  gap: 30px;
+  margin-top: 350px;
+  &--text{
+    width: 30%;
+    color: white;
   }
 }

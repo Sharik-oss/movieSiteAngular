@@ -1,9 +1,21 @@
 <div class="movie-page">
-  <div class="main-page">
+  <div class="main-info">
+    <div class="movie-poster">
+      <img [src]="movieProperties.poster" [alt]="movieProperties.poster">
+    </div>
+    <div class="main-info--text">
+      <h1>{{ movieProperties.name }}</h1>
+      <br>
+      <p>{{"genre"|translate}}: {{ movieProperties.genre }}</p>
+      <br>
+      <p>{{"year"|translate}}: {{ movieProperties.year }}</p>
+      <br>
+      <p>{{"movieDescription"|translate}}: {{ movieProperties.description }}</p>
 
+    </div>
   </div>
   <div class="movie">
-    <iframe width="640" height="360" src="https://short.ink/4KJB6LsNe" allowfullscreen></iframe>
+    <iframe width="900" height="660" [src]="safeMovieUrl" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
   </div>
 </div>
 
