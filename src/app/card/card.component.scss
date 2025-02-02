@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   height: 700px;
-  width: 1700px;
+  width: 90%;
   margin: 0 auto;
   border: 1px solid white;
 
@@ -29,7 +29,49 @@
   justify-content: center;
   flex-direction: row-reverse;
   height: 700px;
-  width: 1700px;
+  width: 90%;
   margin: 0 auto;
   border: 1px solid white;
+}
+
+
+
+@media screen and (max-width: 1023px) {
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 700px;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid white;
+    text-align: center;
+    &-picture {
+      width: 100%;
+  
+      img {
+        width: 100%;
+        object-fit: fill;
+      }
+    }
+  
+    &-description {
+      color: white;
+      font-size: 15px;
+      font-family: fantasy;
+    }
+  }
+  
+  .reverse {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    height: 700px;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid white;
+    text-align: center;
+  }
 }

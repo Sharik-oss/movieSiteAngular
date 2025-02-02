@@ -11,6 +11,11 @@ import { TranslateService } from '@ngx-translate/core';
 export class HeaderComponent {
     
     constructor(private router: Router){}
+    isMenuOpen = false;
+
+    toggleMenu() {
+      this.isMenuOpen = !this.isMenuOpen;
+    }
 
     redirect(link: String){
         this.router.navigate([link])

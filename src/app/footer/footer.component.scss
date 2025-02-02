@@ -33,3 +33,29 @@
 .translate img {
   width: 30px;
 }
+
+
+
+@media screen and (max-width: 1023px) {
+
+  .links {
+    position: relative;
+    height: 200px;
+    background: #050508;
+    transform: translate(0, 100%);
+    bottom: -300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .description {
+    width: 80%;
+  }
+  .translate {
+    position: absolute; /* Position relative to the footer */
+    bottom: 0; /* Distance from the bottom */
+    right: 10px; /* Distance from the right */
+    display: flex;
+    gap: 10px; /* Space between buttons */
+  }
+}
