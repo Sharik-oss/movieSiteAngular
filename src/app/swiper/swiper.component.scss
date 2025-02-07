@@ -59,3 +59,67 @@
   pointer-events: none;
   opacity: 0.5;
 }
+
+
+@media screen and (max-width: 1023px) {
+  .main {
+    width: 290px; /* Make it responsive to screen size */
+    margin: 0 auto; /* Center the content */
+  }
+  .arrow_left{
+    display: none;
+  }
+  .arrow_right{
+    display: none;
+  }
+  .header {
+    width: 100%;
+    color: white;
+    font-size: 10px;
+  }
+
+  .swiper {
+    width: 100%;
+    overflow: hidden; /* Prevent content from spilling out */
+
+    &__dates {
+      display: flex;
+      flex-wrap: nowrap; /* Prevent items from wrapping */
+      overflow-x: hidden; /* Enable horizontal scroll */
+      overflow-y: hidden;
+      gap: 15px; /* Adjust gap for better fit on mobile */
+      padding: 10px 0;
+
+      scroll-snap-type: x mandatory; /* Snap scrolling */
+      -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+
+      scrollbar-width: none; /* Hide scrollbar for Firefox */
+      &::-webkit-scrollbar {
+        display: none; /* Hide scrollbar for Chrome/Safari */
+      }
+
+      div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        scroll-snap-align: start; /* Ensure items snap into place */
+
+        img {
+          width: 25vw; /* Responsive width relative to viewport */
+          height: 40vw; /* Maintain aspect ratio */
+          max-width: 80px; /* Limit size on larger phones */
+          max-height: 100px;
+          object-fit: cover;
+          border-radius: 8px; /* Add rounded corners */
+        }
+
+        span {
+          font-size: 4vw; /* Make text responsive */
+          margin-top: 5px;
+        }
+      }
+
+    }
+  }
+}

@@ -83,6 +83,17 @@ span {
         padding: 20px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     }
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    height: 80px;
+    width: 100%;
+  }
 
     .links.active {
         display: flex;

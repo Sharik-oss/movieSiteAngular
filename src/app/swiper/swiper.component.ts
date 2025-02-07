@@ -4,10 +4,11 @@ import {
   ViewChild,
   ElementRef,
   Input,
-  AfterViewInit,
+  AfterViewInit, inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PopularService } from '../services/popular.service';
+import {map} from 'rxjs';
 
 
 @Component({
@@ -19,7 +20,11 @@ import { PopularService } from '../services/popular.service';
 })
 export class SwiperComponent implements AfterViewInit {
   @Input() header: String = '';
-  @Input() page: String = '';
+  @Input() type: "topMoviesArray" | 'bottomMoviesArray' = 'topMoviesArray';
+
+  private readonly popularMovies = inject(PopularService)
+
+
   private scrollArrow: number = 100;
   @ViewChild('main') elementReference!: ElementRef;
   moviesList: any[] = [];
@@ -27,22 +32,31 @@ export class SwiperComponent implements AfterViewInit {
   startX!: number;
   scrollLeft!: any;
 
-  constructor(public popularMovies: PopularService) {}
+  movies$ = this.popularMovies.getPopularMovies().pipe(
+    map((res) => {
+      const topMoviesArray = res.filter((i) => i.movieType === 'Top')
+      const bottomMoviesArray = res.filter((i) => i.movieType === 'New')
+      return {
+        topMoviesArray,
+        bottomMoviesArray
+      }
+    })
+  )
+
 
   ngAfterViewInit(): void {
     const container = document.querySelector(
       '.swiper-container'
     ) as HTMLElement;
 
-    this.getMovies();
+    this.getMovies(this.type);
   }
 
-  async getMovies() {
-    this.popularMovies.getPopularMovies(this.page).subscribe((data: any) => {
-      this.moviesList = data.data.filter(
-        (movie: any) =>
-          movie.category === 'Фильм' && movie.original_name && movie.poster
-      );
+  async getMovies(type: any) {
+    this.popularMovies.getPopularMovies().subscribe((data: any) => {
+      this.moviesList = data;
+      console.log(this.moviesList);
+      // console.log(this.moviesList.filter())
     });
   }
 

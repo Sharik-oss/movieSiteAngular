@@ -1,9 +1,9 @@
-<div class="main">
+<div class="main" *ngIf="{movies:movies$ | async} as params">
   <div class="header">
     <h1 class="header-text">{{ header }}</h1>
   </div>
   <div class="swiper">
-    <button (click)="leftClick()"><img src="left-arrow.png" alt=""></button>
+    <button class="arrow_left" (click)="leftClick()"><img src="left-arrow.png" alt=""></button>
     <div
       #main
       class="swiper__dates"
@@ -12,11 +12,11 @@
       (mouseup)="onMouseUp()"
       (mouseleave)="onMouseLeave()"
     >
-      <div *ngFor="let movie of moviesList">
-        <img [src]="movie.poster" alt="{{ movie.original_name }}" />
-        <h3 class="movie-title">{{ movie.original_name }}</h3>
+      <div *ngFor="let movie of params.movies?.[type]">
+        <img [src]="movie.poster" alt="{{ movie.movieType }}" />
+        <h3 class="movie-title">{{ movie.name }}</h3>
       </div>
     </div>
-    <button (click)="rightClick()"><img src="right-arrow.png" alt=""></button>
+    <button class="arrow_right" (click)="rightClick()"><img src="right-arrow.png" alt=""></button>
   </div>
 </div>

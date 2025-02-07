@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class SingleMovieService {
-  url = "http://localhost:5000";
+  url = "http://localhost:1043";
 
   constructor(private http: HttpClient) {
 

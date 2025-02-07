@@ -1,4 +1,7 @@
 <div class="wrapper">
+  <div class="ad-left">
+    <h1>Ad 2</h1>
+  </div>
   <div class="img-slider">
     <img
       *ngFor="let image of firstImages; let i = index"
@@ -14,10 +17,13 @@
     />
   </div>
   <div class="swiper">
-    <app-swiper [header]="'top' | translate" page="page-1000.json"></app-swiper>
+    <app-swiper [header]="'top' | translate" type="topMoviesArray"></app-swiper>
     <app-swiper
       [header]="'popular' | translate"
-      page="page-1004.json"
+      type="bottomMoviesArray"
     ></app-swiper>
+  </div>
+  <div class="ad-right">
+    <img src="https://i.postimg.cc/1z2F5fdj/image.jpg" alt="">
   </div>
 </div>
