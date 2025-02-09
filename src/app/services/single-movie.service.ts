@@ -13,7 +13,7 @@ export class SingleMovieService {
 
 
 
-  getMovieProps(){
-    return this.http.get(`${this.url}/movie/13`);
+  getMovieProps(movieId: any){
+    return this.http.get(`${this.url}/movie/${movieId}`);
   }
 }

@@ -1,4 +1,3 @@
-
 .overlay {
   background-color: rgba(0, 0, 0, 0.713);
   width: 100%;
@@ -49,19 +48,18 @@
 }
 
 
-.swiper{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-    position: relative;
-    top: 200px;
+.swiper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  top: 200px;
 }
 
-.ad-left{
+.ad-left {
   height: 100%;
-  background-color: white;
   position: absolute;
   top: 50%;
   z-index: 3;
@@ -69,37 +67,57 @@
 }
 
 
-.ad-right{
+.ad-right {
   height: 100%;
-  background-color: white;
   position: absolute;
   top: 50%;
   z-index: 3;
   right: 0;
   width: 170px;
-  img{
+
+  img {
     width: 100%;
   }
 }
 
 
 
-@media screen and (max-width: 1023px){
-  .wrapper{
+@media screen and (max-width: 1023px) {
+  .wrapper {
     position: relative;
   }
-  .ad-left{
+
+  .ad-left {
     position: absolute;
     top: 0;
     width: 100%;
     height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      transform: rotate(90deg);
+    }
   }
-  .ad-right{
+
+  .ad-right {
     position: absolute;
-    top: 130%;
+    top: 150%;
     width: 100%;
     height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+
+      transform: rotate(90deg);
+    }
   }
+
   .img-slider-2 {
     position: absolute;
     top: 100%;

@@ -1,35 +1,59 @@
 .movie-page {
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   width: 100%;
+
   .movie {
-    height: 100%;
-    width: 50%;
     position: relative;
     top: 190px;
   }
 }
 
 
-.main-info{
+.main-info {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50%;
+  height: 100%;
   gap: 30px;
   margin-top: 350px;
-  &--text{
+
+  &--text {
     width: 30%;
     color: white;
   }
 }
 
 
-.movie-poster{
-  img{
-    width: 400px;
+.movie-poster {
+  img {
+    width: 200px;
+  }
+}
+
+
+@media screen and (max-width: 1023px) {
+  .main-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+
+    &--text {
+      width: 80%;
+      color: white;
+    }
+  }
+
+
+
+  .movie-poster {
+
+    img {
+      margin-top: 300px;
+    }
   }
 }

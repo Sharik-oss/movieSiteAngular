@@ -12,9 +12,9 @@
       (mouseup)="onMouseUp()"
       (mouseleave)="onMouseLeave()"
     >
-      <div *ngFor="let movie of params.movies?.[type]">
-        <img [src]="movie.poster" alt="{{ movie.movieType }}" />
-        <h3 class="movie-title">{{ movie.name }}</h3>
+      <div  *ngFor="let movie of params.movies?.[type]">
+        <img class="moviePoster" [src]="movie.poster" alt="{{ movie.movieType }}"  (click)="redirectToMovie(movie.id)"/>
+        <h3 class="movie-title" (click)="redirectToMovie(movie.id)">{{ movie.name }}</h3>
       </div>
     </div>
     <button class="arrow_right" (click)="rightClick()"><img src="right-arrow.png" alt=""></button>

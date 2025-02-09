@@ -5,17 +5,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class MovieService {
-  private url = 'https://api-movies.github.io/alloha/datasets/';
+  private url = 'http://localhost:1043/';
 
   constructor(private http: HttpClient) {}
 
-  getMovies(page: Text) {
-    return this.http.get<any>(`${this.url}${page}`);
+  getMovies() {
+    return this.http.get<any>(`${this.url}movie`);
   }
 
-
-  getMovie() {
-
-    return this.http.get('https://sansa.allarknow.online/movie/988601', {});
-  }
 }

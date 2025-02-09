@@ -5,10 +5,12 @@ import {
   ElementRef,
   Input,
   AfterViewInit, inject,
+  Inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PopularService } from '../services/popular.service';
 import {map} from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -31,6 +33,9 @@ export class SwiperComponent implements AfterViewInit {
   private isDragging = false;
   startX!: number;
   scrollLeft!: any;
+  
+  
+  constructor(public router: Router){}
 
   movies$ = this.popularMovies.getPopularMovies().pipe(
     map((res) => {
@@ -89,5 +94,10 @@ export class SwiperComponent implements AfterViewInit {
 
   leftClick() {
     this.elementReference.nativeElement.scrollLeft -= this.scrollArrow;
+  }
+
+
+  redirectToMovie(movieId: any){
+    this.router.navigate([movieId]);
   }
 }

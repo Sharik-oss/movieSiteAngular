@@ -1,19 +1,31 @@
-:host{
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
+:host {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
 }
+
+
+.genres{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 30%;
+}
+
+
+
 .wrapper {
   background-color: #1a1b20;
   height: fit-content;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 53px;
-  width: 1050px;
+  width: 70%;
   justify-content: center;
   overflow-x: hidden;
   border-radius: 20px;
-  
+
 
   .movieCard {
     width: 300px;
@@ -41,3 +53,38 @@
     }
   }
 }
+
+.moviePoster:hover {
+  cursor: pointer;
+}
+
+.movieTitle:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+
+@media screen and (max-width: 1023px) {
+  .wrapper {
+    background-color: #1a1b20;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    justify-content: center;
+    overflow-x: hidden;
+    border-radius: 10px;
+    padding-left: 44px;
+  }
+}
+
+
+@media screen and (max-width: 379px) {
+  .wrapper {
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+

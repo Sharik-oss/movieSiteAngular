@@ -54,6 +54,13 @@
     }
   }
 }
+.moviePoster:hover{
+  cursor: pointer;
+}
+.movie-title:hover{
+  cursor: pointer;
+  text-decoration-line: underline;
+}
 
 .next {
   pointer-events: none;
@@ -63,7 +70,7 @@
 
 @media screen and (max-width: 1023px) {
   .main {
-    width: 290px; /* Make it responsive to screen size */
+    width: 450px; /* Make it responsive to screen size */
     margin: 0 auto; /* Center the content */
   }
   .arrow_left{
@@ -75,7 +82,7 @@
   .header {
     width: 100%;
     color: white;
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .swiper {
@@ -106,8 +113,8 @@
         scroll-snap-align: start; /* Ensure items snap into place */
 
         img {
-          width: 25vw; /* Responsive width relative to viewport */
-          height: 40vw; /* Maintain aspect ratio */
+          width: 40vw; /* Responsive width relative to viewport */
+          height: 50vw; /* Maintain aspect ratio */
           max-width: 80px; /* Limit size on larger phones */
           max-height: 100px;
           object-fit: cover;
@@ -123,3 +130,6 @@
     }
   }
 }
+
+
+

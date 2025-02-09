@@ -1,29 +1,28 @@
 <div class="wrapper">
   <div class="ad-left">
-    <h1>Ad 2</h1>
+    <a [href]="leftAd?.redirectUrl" target="_blank">
+      <img [src]="leftAd?.imgUrl" alt="Ad Image">
+    </a>
   </div>
+
   <div class="img-slider">
-    <img
-      *ngFor="let image of firstImages; let i = index"
-      [src]="image.img"
-      [ngClass]="{ active: i === currentIndex }"
-    />
+    <img *ngFor="let image of firstImages; let i = index" [src]="image.img"
+      [ngClass]="{ active: i === currentIndex }" />
   </div>
+
   <div class="img-slider-2">
-    <img
-      *ngFor="let image of secondImages; let i = index"
-      [src]="image.img"
-      [ngClass]="{ active: i === currentIndex }"
-    />
+    <img *ngFor="let image of secondImages; let i = index" [src]="image.img"
+      [ngClass]="{ active: i === currentIndex }" />
   </div>
+
   <div class="swiper">
     <app-swiper [header]="'top' | translate" type="topMoviesArray"></app-swiper>
-    <app-swiper
-      [header]="'popular' | translate"
-      type="bottomMoviesArray"
-    ></app-swiper>
+    <app-swiper [header]="'new' | translate" type="bottomMoviesArray"></app-swiper>
   </div>
+
   <div class="ad-right">
-    <img src="https://i.postimg.cc/1z2F5fdj/image.jpg" alt="">
+    <a [href]="rightAd?.redirectUrl" target="_blank">
+      <img [src]="rightAd?.imgUrl" alt="Ad Image">
+    </a>
   </div>
 </div>
