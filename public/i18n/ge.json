@@ -16,5 +16,8 @@
   "description": "© 'UltraFilms.Net' უფასო ტოპ ფილმები, საუკეთესო ახალი ფილმები, შეგიძლიათ ნახოთ ონლაინ აგრეთვე Smart TV-ზე (Samsung; LG (webOS); Hisense (Vidaa OS); Philips (Whale Eco); Apple TV; Android TV; Xiaomi Sony; PlayStation, Xbox სათამაშო კონსოლზე, ტელეფონი (iOS (iPhone და iPad); Android-ზე), ტაბლეტზე, ლეპტოპში, უმაღლესი ხარისხით: Full HD და UHD 4K რეზოლუციით. ვიდეოს ჩამოტვირთვის სიჩქარე მთლიანად დამოკიდებულია ინტერნეტის თქვენი ინტერნეტის სიჩქარეზე.",
   "year": "წელი",
   "genre": "ჟანრი",
-  "movieDescription":"აღწერა"
+  "movieDescription":"აღწერა",
+  "selectGenres": "აირჩიეთ ჟანრები",
+  "search": "ძებნა",
+  "moviesNotFound": "ფილმები ვერ მოიძებნა"
 }

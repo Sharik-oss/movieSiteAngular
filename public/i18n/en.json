@@ -16,5 +16,8 @@
   "description": "© 'UltraFilms.Net' Free top movies, the best new movies, can be watched online on Smart TVs (Samsung; LG (webOS); Hisense (Vidaa OS); Philips (Whale Eco); Apple TV; Android TV; Xiaomi; Sony; Huawei), PlayStation, Xbox game console, phone (iOS (iPhone and iPad); on Android), tablet, laptop, computer in good quality Full HD and UHD 4K. Video download speed depends entirely on the Internet speed.",
   "year": "Year",
   "genre": "Genre",
-  "movieDescription":"Description"
+  "movieDescription": "Description",
+  "selectGenres": "Select genres",
+  "search": "Search",
+  "moviesNotFound": "Films not found"
 }

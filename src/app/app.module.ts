@@ -12,6 +12,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {provideTranslation} from '../provideTranslation';
 import {FooterComponent} from './footer/footer.component';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -27,12 +28,14 @@ export function createTranslateLoader(http: HttpClient) {
     CardComponent,
     FooterComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    TranslateModule.forRoot(provideTranslation()),
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        TranslateModule.forRoot(provideTranslation()),
+        FormsModule,
+        ReactiveFormsModule,
 
-  ],
+    ],
   providers: [provideHttpClient(), provideAnimationsAsync()],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 

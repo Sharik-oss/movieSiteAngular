@@ -1,89 +1,141 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #15161a;
-    color: white;
-    position: absolute;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    height: 80px;
-    width: 100%;
-    gap: 30px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #15161a;
+  color: white;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  gap: 30px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+.movies {
+  position: relative;
+}
+.movieLinks {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid #ccc;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, auto);
+
+  gap: 10px;
+  padding: 15px;
+  min-width: 300px;
+  max-height: 600px;
+  z-index: 10;
+  br{
+    width: 100%;
+    background-color: white;
+  }
+}
+
+.movieLinks ul {
+  display: contents; /* Makes the list items fit inside the grid */
+}
+
+.movieLinks li {
+  padding: 8px 12px;
+  cursor: pointer;
+  text-align: center;
+  background: #1a1a1a; /* Darker background */
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  list-style: none;
+}
+
+.movieLinks li:hover {
+  background: #333; /* Highlight on hover */
+}
+
 
 /* Logo */
 .header .logo {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    left: 50px;
-    gap: 20px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50px;
+  gap: 20px;
+  cursor: pointer;
 }
+
 .logo img {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 /* Links */
 .links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    font-size: 23px;
-    transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  font-size: 23px;
+  transition: all 0.3s ease-in-out;
 }
+
 ul:hover {
-    cursor: pointer;
-    text-decoration: underline;
+  cursor: pointer;
+  text-decoration: underline;
 }
+
 a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
+
 span {
-    color: green;
+  color: green;
 }
 
 /* Burger Icon */
 .burger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    position: absolute;
-    right: 50px;
-    cursor: pointer;
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  position: absolute;
+  right: 50px;
+  cursor: pointer;
 }
+
 .burger span {
-    width: 30px;
-    height: 4px;
-    background-color: white;
-    border-radius: 5px;
-    transition: all 0.3s ease;
+  width: 30px;
+  height: 4px;
+  background-color: white;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
 /* Responsive Design */
 @media screen and (max-width: 1023px) {
-    .burger {
-        display: flex;
-    }
+  .burger {
+    display: flex;
+  }
 
-    .links {
-        display: none;
-        position: absolute;
-        top: 80px;
-        right: 0;
-        background-color: #15161a;
-        flex-direction: column;
-        width: 200px;
-        padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    }
-  .header{
+  .links {
+    display: none;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background-color: #15161a;
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  }
+
+  .header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -91,18 +143,50 @@ span {
     top: 0;
     left: 0;
     height: 80px;
-    width: 100%;
+    width: 100%; /* Changed from 100vw to 100% */
     z-index: 10000;
-
+    background-color: #15161a; /* Ensure visibility */
   }
 
-    .links.active {
-        display: flex;
+  .links.active {
+    display: flex;
+  }
 
-    }
+  .links ul {
+    padding: 10px 0;
+  }
 
-    .links ul {
-        padding: 10px 0;
+  .movieLinks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    position: absolute;
+    transform: translateX(-100%);
+    left: 0;
+    top: 30px;
+    min-width: 100%; /* Full width for the genre list */
+    min-height: 250px; /* Limit height for smaller screens */
+  }
 
-    }
+  .movieLinks ul {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .movieLinks li {
+    font-size: 14px; /* Slightly smaller font size for mobile */
+  }
+}
+
+
+@media screen and (max-width: 400px) {
+  .movieLinks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    position: absolute;
+
+    left: 160px;
+    top: 30px;
+    min-width: 350px; /* Full width for the genre list */
+    min-height: 250px; /* Limit height for smaller screens */
+  }
 }

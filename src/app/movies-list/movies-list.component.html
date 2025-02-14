@@ -1,13 +1,19 @@
-<div class="wrapper">
+<div class="main-wrapper">
+  <div class="search">
+    <input type="text" [placeholder]='"search" | translate' [formControl]="movieName" (keydown.enter)="getInput()">
+    <button class="searchButton" (click)="getInput()">{{ "search" | translate }}</button>
+  </div>
 
-  <ng-container *ngFor="let movie of movies">
-    <div class="movieCard">
-      <div class="movieImg">
-        <img class="moviePoster" [src]="movie.poster" [alt]="movie.poster" (click)="redirectToMovie(movie.id)" />
+  <div class="wrapper">
+    <ng-container *ngFor="let movie of movies">
+      <div class="movieCard">
+        <div class="movieImg">
+          <img class="moviePoster" [src]="movie.poster" [alt]="movie.poster" (click)="redirectToMovie(movie.id)"/>
+        </div>
+        <div class="movieTitle">
+          <p (click)="redirectToMovie(movie.id)">{{ movie.name }}</p>
+        </div>
       </div>
-      <div class="movieTitle">
-        <p (click)="redirectToMovie(movie.id)">{{ movie.name }}</p>
-      </div>
-    </div>
-  </ng-container>
+    </ng-container>
+  </div>
 </div>

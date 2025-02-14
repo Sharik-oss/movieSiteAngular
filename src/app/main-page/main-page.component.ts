@@ -1,10 +1,10 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit, OnDestroy } from '@angular/core';
-import { PopularService } from '../services/popular.service';
-import { CommonModule } from '@angular/common';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { SwiperComponent } from '../swiper/swiper.component';
-import { Router } from '@angular/router';
-import { AdService } from '../services/ad.service';
+import {Component, CUSTOM_ELEMENTS_SCHEMA, inject, OnInit, OnDestroy} from '@angular/core';
+import {PopularService} from '../services/popular.service';
+import {CommonModule} from '@angular/common';
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {SwiperComponent} from '../swiper/swiper.component';
+import {Router} from '@angular/router';
+import {AdService} from '../services/ad.service';
 
 @Component({
   selector: 'app-main-page',
@@ -16,33 +16,33 @@ import { AdService } from '../services/ad.service';
 })
 export class MainPageComponent implements OnInit, OnDestroy {
   firstImages: any[] = [
-    { img: 'background-1.jpg' },
-    { img: 'background-2.jpg' },
-    { img: 'background-3.jpg' },
-    { img: 'background-4.jpg' },
-    { img: 'background-5.jpg' },
-    { img: 'background-6.jpg' },
-    { img: 'background-7.jpg' },
-    { img: 'background-8.jpg' },
-    { img: 'background-10.jpg' },
-    { img: 'background-11.jpg' },
-    { img: 'background-12.jpg' },
-    { img: 'background-13.jpg' },
+    {img: 'background-1.jpg'},
+    {img: 'background-2.jpg'},
+    {img: 'background-3.jpg'},
+    {img: 'background-4.jpg'},
+    {img: 'background-5.jpg'},
+    {img: 'background-6.jpg'},
+    {img: 'background-7.jpg'},
+    {img: 'background-8.jpg'},
+    {img: 'background-10.jpg'},
+    {img: 'background-11.jpg'},
+    {img: 'background-12.jpg'},
+    {img: 'background-13.jpg'},
   ];
-  
+
   secondImages: any[] = [
-    { img: 'background-14.jpg' },
-    { img: 'background-15.jpg' },
-    { img: 'background-16.jpg' },
-    { img: 'background-17.jpg' },
-    { img: 'background-18.jpg' },
-    { img: 'background-19.jpg' },
-    { img: 'background-20.jpg' },
-    { img: 'background-21.jpg' },
-    { img: 'background-22.jpg' },
-    { img: 'background-23.jpg' },
-    { img: 'background-24.jpg' },
-    { img: 'background-25.jpg' },
+    {img: 'background-14.jpg'},
+    {img: 'background-15.jpg'},
+    {img: 'background-16.jpg'},
+    {img: 'background-17.jpg'},
+    {img: 'background-18.jpg'},
+    {img: 'background-19.jpg'},
+    {img: 'background-20.jpg'},
+    {img: 'background-21.jpg'},
+    {img: 'background-22.jpg'},
+    {img: 'background-23.jpg'},
+    {img: 'background-24.jpg'},
+    {img: 'background-25.jpg'},
   ];
 
   adService = inject(AdService);
@@ -51,7 +51,8 @@ export class MainPageComponent implements OnInit, OnDestroy {
   leftAd!: any;
   rightAd!: any;
 
-  constructor(public route: Router) {}
+  constructor(public route: Router) {
+  }
 
   ngOnInit() {
     this.startImageSlider();
@@ -107,13 +108,9 @@ export class MainPageComponent implements OnInit, OnDestroy {
 
   updateAdsForScreenSize = () => {
     const isMobile = window.innerWidth <= 1023;
-    
-    if (this.leftAd) {
-      this.leftAd.imgUrl = isMobile ? this.leftAd.mobileUrl : this.leftAd.imgUrl;
-    }
 
-    if (this.rightAd) {
-      this.rightAd.imgUrl = isMobile ? this.rightAd.mobileUrl : this.rightAd.imgUrl;
-    }
+    this.leftAd.imgUrl = isMobile ? this.leftAd.mobileUrl : this.leftAd.imgUrl;
+
+    this.rightAd.imgUrl = isMobile ? this.rightAd.mobileUrl : this.rightAd.imgUrl;
   };
 }

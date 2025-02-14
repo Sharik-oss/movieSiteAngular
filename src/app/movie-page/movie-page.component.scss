@@ -16,6 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 100%;
   gap: 30px;
   margin-top: 350px;
@@ -33,6 +34,29 @@
   }
 }
 
+.skip-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 10;
+}
+
+
+
+.ad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 255px;
+
+}
 
 @media screen and (max-width: 1023px) {
   .main-info {
@@ -47,7 +71,6 @@
       color: white;
     }
   }
-
 
 
   .movie-poster {

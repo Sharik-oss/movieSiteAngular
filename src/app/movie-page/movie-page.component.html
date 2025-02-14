@@ -6,17 +6,29 @@
     <div class="main-info--text">
       <h1>{{ movieProperties.name }}</h1>
       <br>
-      <p>{{"genre"|translate}}: {{ movieProperties.genre }}</p>
+      <p>{{ "genre"|translate }}: {{ movieProperties.genre }}</p>
       <br>
-      <p>{{"year"|translate}}: {{ movieProperties.year }}</p>
+      <p>{{ "year"|translate }}: {{ movieProperties.year }}</p>
       <br>
-      <p>{{"movieDescription"|translate}}: {{ movieProperties.description }}</p>
+      <p>{{ "movieDescription"|translate }}: {{ movieProperties.description }}</p>
 
     </div>
+    <div class="movie">
+
+      <iframe [width]="width" [height]="height" [src]="safeMovieUrl" allowfullscreen="1"
+              allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </div>
   </div>
-  <div class="movie">
-    <iframe [width]="width" [height]="height" [src]="safeMovieUrl" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+  <div class="ad" *ngIf="movieAd">
+    <div (click)="redirectToAd()" style="cursor: pointer;">
+      <iframe [width]="width" [height]="height" frameborder="0" [src]="adUrlSafeUrl" allowfullscreen></iframe>
+    </div>
+    <button *ngIf="showSkipButton" (click)="removeAd()" class="skip-btn">
+      Skip Ad
+    </button>
   </div>
+
 </div>
 
 

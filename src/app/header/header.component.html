@@ -13,7 +13,24 @@
 
   <div class="links" [class.active]="isMenuOpen">
     <ul (click)="redirect('')">{{ 'home' | translate }}</ul>
-    <ul (click)="redirect('movies')">{{ 'movies' | translate }}</ul>
+    <ul
+      class="movies"
+      (mouseenter)="showGenres(true)"
+      (mouseleave)="showGenres(false)"
+      (click)="redirectToMovie()"
+    >
+      {{ 'movies' | translate }}
+      <ul class="movieLinks" *ngIf="isGenreListVisible">
+        <li *ngFor="let genre of genreList"
+            [class.selected]="selectedGenres.includes(genre)"
+            (click)="redirectToGenre(genre, $event)">
+          {{ genre }}
+        </li>
+
+        <br>
+
+      </ul>
+    </ul>
     <ul (click)="redirect('about')">{{ 'aboutus' | translate }}</ul>
   </div>
 </header>
