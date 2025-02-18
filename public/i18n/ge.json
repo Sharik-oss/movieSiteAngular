@@ -19,5 +19,6 @@
   "movieDescription":"აღწერა",
   "selectGenres": "აირჩიეთ ჟანრები",
   "search": "ძებნა",
-  "moviesNotFound": "ფილმები ვერ მოიძებნა"
+  "moviesNotFound": "ფილმები ვერ მოიძებნა",
+  "selectByYear": "წლების მიხედვით ფილმების მოძებნა: "
 }

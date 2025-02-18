@@ -17,20 +17,37 @@
       class="movies"
       (mouseenter)="showGenres(true)"
       (mouseleave)="showGenres(false)"
-      (click)="redirectToMovie()"
+      (click)="onMoviesClick($event)"
     >
       {{ 'movies' | translate }}
-      <ul class="movieLinks" *ngIf="isGenreListVisible">
-        <li *ngFor="let genre of genreList"
-            [class.selected]="selectedGenres.includes(genre)"
-            (click)="redirectToGenre(genre, $event)">
-          {{ genre }}
-        </li>
 
-        <br>
+      <ul class="movieLinks" *ngIf="isGenreListVisible">
+        <!-- Genre List -->
+        <ng-container *ngFor="let genre of genreList">
+          <li [class.selected]="selectedGenres.includes(genre)"
+              (click)="redirectToGenre(genre, $event)">
+            {{ genre }}
+          </li>
+        </ng-container>
+
+        <!-- Separator -->
+        <br class="separator" />
+        <p class="selectYear" (click)="$event.stopPropagation(); false">
+          {{"selectByYear" | translate}}
+        </p>
+        <!-- Year Dropdown -->
+        <select (click)="$event.stopPropagation()" (change)="selectYear($event)" class="modern-select dark-mode">
+          <option *ngFor="let year of yearList" [value]="year">{{ year }}</option>
+        </select>
+
+
+
+        <!-- Disabled Clickable Text -->
+
 
       </ul>
     </ul>
+
     <ul (click)="redirect('about')">{{ 'aboutus' | translate }}</ul>
   </div>
 </header>

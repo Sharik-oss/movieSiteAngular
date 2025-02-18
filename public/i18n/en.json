@@ -19,5 +19,6 @@
   "movieDescription": "Description",
   "selectGenres": "Select genres",
   "search": "Search",
-  "moviesNotFound": "Films not found"
+  "moviesNotFound": "Films not found",
+  "selectByYear": "Select movie by year: "
 }

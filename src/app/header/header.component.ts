@@ -10,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent {
   selectedGenres: string[] = [];
+  yearList: string[] = Array.from({ length: 2025 - 1960 + 1 }, (_, i) => (1960 + i).toString());
   genreList: string[] = [
     "ანიმაცია", "ბიოგრაფია", "დეტექტივი", "დოკუმენტური", "დრამა", "ვესტერნი",
     "კრიმინალური", "კომედია", "ისტორიული", "მელოდრამა", "მისტიური", "მიუზიკლი",
@@ -18,9 +19,24 @@ export class HeaderComponent {
     "ტრილერი", "საბავშვო", "ფანტასტიკა"
   ];
   isGenreListVisible = false;
+  selectedYear: string | null = null;
+
+  selectYear(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    this.selectedYear = target.value;
+    this.router.navigate(['/movies/', this.selectedYear]);
+    this.isGenreListVisible = false;
+  }
 
   showGenres(show: boolean) {
     this.isGenreListVisible = show;
+  }
+
+  onMoviesClick(event: MouseEvent) {
+    // Check if the click was directly on `.movies`, not a child element
+    if (event.target === event.currentTarget) {
+      this.redirectToMovie();
+    }
   }
 
   redirectToGenre(genre: string, event: MouseEvent) {

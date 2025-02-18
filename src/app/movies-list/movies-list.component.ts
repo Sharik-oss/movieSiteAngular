@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MovieService} from '../services/movie.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, Validators} from '@angular/forms';
+import {log} from '@angular-devkit/build-angular/src/builders/ssr-dev-server';
 
 @Component({
   selector: 'app-movies-list',
@@ -12,6 +13,7 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class MoviesListComponent implements OnInit {
   selectedGenres: string[] = [];
+  selectedYear: string[] = [];
   searchTerm: string = "";
   public movieName = new FormControl('', [
     Validators.required,
@@ -63,54 +65,71 @@ export class MoviesListComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const genreParam = params.get('genre');
+      console.log(genreParam);
+
       if (genreParam) {
         this.selectedGenres = genreParam.split(',').map(genre => genre.trim()); // Convert string to array
-        this.getMovieGenre(this.selectedGenres);
+        this.getMovieByParam(this.selectedGenres);
       } else {
-        this.getMovieGenre();
+        this.getMovieList();
+      }
+    });
+
+
+  }
+
+
+  getMoviesBasedOnParams() {
+    this.route.paramMap.subscribe(params => {
+      const genreParam = params.get('genre');
+
+      // If genre and year parameters are provided
+      if (genreParam) {
+        const selectedGenres = genreParam.split(',').map(g => g.trim());
+
+        this.getMovieByParam(selectedGenres);
+
+        // If only genre is provided
+      } else if (genreParam) {
+        const selectedGenres = genreParam.split(',').map(g => g.trim());
+        this.getMovieByParam(selectedGenres);
+      } else {
+        this.getMovieList();
       }
     });
   }
 
-
-  getMovieGenre(selectedGenres ?: string[]) {
+  getMovieByParam(selectedGenres?: string[], selectedYear?: string | number) {
     this.movieService.getMovies().subscribe((data: any) => {
-      if (selectedGenres) {
-        this.movies = data.filter((movie: any) =>
+      let filteredMovies = data;
+
+      // If selectedGenres is provided and is not a year, filter by genre
+      if (selectedGenres && selectedGenres.length > 0 && isNaN(Number(selectedGenres[0]))) {
+        filteredMovies = filteredMovies.filter((movie: any) =>
           movie.genre.split(',').some((g: string) => selectedGenres.includes(g.trim()))
         );
-        return this.movies
-      } else {
-        this.movies = data;
-        return this.movies
       }
+
+      // If selectedGenres is actually a year, filter by year
+      if (selectedGenres && selectedGenres.length === 1 && !isNaN(Number(selectedGenres[0]))) {
+        filteredMovies = filteredMovies.filter((movie: any) =>
+          movie.year === selectedGenres[0]
+        );
+      }
+
+      this.movies = filteredMovies;
+      return this.movies;
     });
   }
+
 
   getMovieList() {
     this.movieService.getMovies().subscribe((data: any) => {
-
-      const movieName = this.movieName.value;  // Get the trimmed value from the form control
-
-      if (movieName) {
-        // Filter movies by name using case-insensitive matching
-        const filteredMovies = data.filter((movie: any) => {
-          console.log('Checking movie:', movie.name);  // Log each movie's name
-          return movie.name.toLowerCase().includes(movieName.toLowerCase());
-        });
-
-        // If no movies match the search term, set this.movies to an empty array
-        if (filteredMovies.length > 0) {
-          this.movies = filteredMovies;
-        } else {
-          this.movies = []; // Return an empty list if no matches
-        }
-      } else {
-        // If no search term, return all movies
-        this.movies = data;
-      }
+      this.movies = data;
+      return this.movies;
     });
   }
+
 
   redirectToMovie(movieId: any) {
     this.router.navigate([movieId]);

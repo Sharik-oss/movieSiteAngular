@@ -20,7 +20,7 @@
 .movieLinks {
   position: absolute;
   top: 100%;
-  left: 50%;
+  left: 70%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.9);
   border: 1px solid #ccc;
@@ -59,6 +59,13 @@
   background: #333; /* Highlight on hover */
 }
 
+.selectYear{
+  font-size: 15px;
+  width: 300px;
+  text-align: center;
+  pointer-events: none;
+  text-decoration-line: none;
+}
 
 /* Logo */
 .header .logo {
@@ -87,8 +94,69 @@
 
 ul:hover {
   cursor: pointer;
-  text-decoration: underline;
 }
+
+/* Dark mode styles only */
+.modern-select.dark-mode {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #e1e1e1; /* Light text */
+  background-color: #2c2f38; /* Dark background */
+  border: 2px solid #444; /* Lighter border */
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 200px;
+
+
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.modern-select.dark-mode:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.5);
+}
+
+.modern-select.dark-mode::after {
+  content: '▼';
+  font-size: 18px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.modern-select.dark-mode option {
+  background-color: #2c2f38; /* Same background for options */
+  color: #e1e1e1; /* Light text for options */
+}
+
+.modern-select.dark-mode option:hover {
+  background-color: #444; /* Slightly darker on hover */
+}
+
 
 a {
   color: white;
@@ -97,6 +165,9 @@ a {
 
 span {
   color: green;
+}
+.selectYear{
+  text-decoration-line: none;
 }
 
 /* Burger Icon */
@@ -161,8 +232,8 @@ span {
     grid-template-columns: repeat(3, 1fr);
     position: absolute;
     transform: translateX(-100%);
-    left: 0;
-    top: 30px;
+    pointer-events: none;
+
     min-width: 100%; /* Full width for the genre list */
     min-height: 250px; /* Limit height for smaller screens */
   }
@@ -177,6 +248,10 @@ span {
   }
 }
 
+
+.years{
+  width: 20%;
+}
 
 @media screen and (max-width: 400px) {
   .movieLinks {
