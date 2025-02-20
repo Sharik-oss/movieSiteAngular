@@ -5,7 +5,9 @@
   transform: translate(0, 100%);
   bottom: -300px;
   display: flex;
+
   align-items: center;
+  margin: 0 auto;
   justify-content: center;
 }
 
@@ -37,6 +39,9 @@
 
 
 @media screen and (max-width: 1023px) {
+  .footer {
+    width: 105%;
+  }
 
   .links {
     position: relative;

@@ -253,15 +253,15 @@ span {
   width: 20%;
 }
 
-@media screen and (max-width: 400px) {
-  .movieLinks {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    position: absolute;
-
-    left: 160px;
-    top: 30px;
-    min-width: 350px; /* Full width for the genre list */
-    min-height: 250px; /* Limit height for smaller screens */
-  }
-}
+//@media screen and (max-width: 400px) {
+//  .movieLinks {
+//    display: grid;
+//    grid-template-columns: repeat(2, 1fr);
+//    position: absolute;
+//
+//    left: 160px;
+//    top: 30px;
+//    min-width: 350px; /* Full width for the genre list */
+//    min-height: 250px; /* Limit height for smaller screens */
+//  }
+//}
