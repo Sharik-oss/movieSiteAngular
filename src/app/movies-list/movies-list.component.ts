@@ -3,6 +3,7 @@ import {MovieService} from '../services/movie.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, Validators} from '@angular/forms';
 import {log} from '@angular-devkit/build-angular/src/builders/ssr-dev-server';
+import {filter} from 'rxjs';
 
 @Component({
   selector: 'app-movies-list',
@@ -79,6 +80,9 @@ export class MoviesListComponent implements OnInit {
   }
 
 
+
+
+
   getMoviesBasedOnParams() {
     this.route.paramMap.subscribe(params => {
       const genreParam = params.get('genre');
@@ -121,7 +125,26 @@ export class MoviesListComponent implements OnInit {
       return this.movies;
     });
   }
+  getMovieByName(){
+    this.movieService.getMovies().subscribe((data: any) => {
+      const movieName = this.movieName.value;
+      console.log(movieName);
+      if (movieName) {
+        const trimmedMovieName = movieName.trim(); // Remove trailing spaces
 
+        const filteredMovies = data.filter((movie: any) =>
+          movie.name.toLowerCase().indexOf(trimmedMovieName.toLowerCase()) >= 0
+        );
+
+        this.movies = filteredMovies.length > 0 ? filteredMovies : [];
+      } else {
+        this.movies = data;
+      }
+
+
+
+    })
+  }
 
   getMovieList() {
     this.movieService.getMovies().subscribe((data: any) => {
@@ -137,6 +160,6 @@ export class MoviesListComponent implements OnInit {
 
 
   getInput() {
-    this.getMovieList();
+    this.getMovieByName();
   }
 }
