@@ -1,22 +1,22 @@
-import {AfterViewInit, Component, Inject, inject} from '@angular/core';
-import {SingleMovieService} from '../services/single-movie.service';
-import {TranslatePipe} from '@ngx-translate/core';
-import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
-import {ActivatedRoute} from '@angular/router';
-import {AdService} from '../services/ad.service';
-import {filter} from 'rxjs';
-import {CommonModule} from '@angular/common';
+import { AfterViewInit, Component, Inject, inject } from '@angular/core';
+import { SingleMovieService } from '../services/single-movie.service';
+import { TranslatePipe } from '@ngx-translate/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { AdService } from '../services/ad.service';
+import { filter } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-movie-page',
+  standalone: true,
   imports: [
     TranslatePipe,
     CommonModule
   ],
   templateUrl: './movie-page.component.html',
-  styleUrl: './movie-page.component.scss'
+  styleUrls: ['./movie-page.component.scss']
 })
-
 
 export class MoviePageComponent implements AfterViewInit {
   private movieProps = inject(SingleMovieService);
@@ -57,11 +57,17 @@ export class MoviePageComponent implements AfterViewInit {
       if (filteredAds.length > 0) {
         this.movieAd = filteredAds[0];
 
-        // Append autoplay=1 to the ad URL
-        const adUrlWithAutoplay = this.movieAd.imgUrl.includes('?')
-          ? `${this.movieAd.imgUrl}&autoplay=1`
-          : `${this.movieAd.imgUrl}?autoplay=1`;
+        // Ensure the URL is valid and append autoplay + mute
+        let adUrlWithAutoplay = this.movieAd.imgUrl;
 
+        // Add autoplay and mute parameters
+        if (adUrlWithAutoplay.includes('?')) {
+          adUrlWithAutoplay += '&autoplay=1&mute=1';
+        } else {
+          adUrlWithAutoplay += '?autoplay=1&mute=1';
+        }
+
+        // Bypass Angular security to trust the URL
         this.adUrlSafeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(adUrlWithAutoplay);
 
         // Show skip button after 15 seconds
@@ -71,7 +77,6 @@ export class MoviePageComponent implements AfterViewInit {
       }
     });
   }
-
 
   redirectToAd() {
     if (this.movieAd && this.movieAd.redirectUrl) {

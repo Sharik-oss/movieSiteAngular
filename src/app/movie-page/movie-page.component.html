@@ -6,30 +6,36 @@
     <div class="main-info--text">
       <h1>{{ movieProperties.name }}</h1>
       <br>
-      <p>{{ "genre"|translate }}: {{ movieProperties.genre }}</p>
+      <p>{{ "genre" | translate }}: {{ movieProperties.genre }}</p>
       <br>
-      <p>{{ "year"|translate }}: {{ movieProperties.year }}</p>
+      <p>{{ "year" | translate }}: {{ movieProperties.year }}</p>
       <br>
-      <p>{{ "movieDescription"|translate }}: {{ movieProperties.description }}</p>
-
+      <p>{{ "movieDescription" | translate }}: {{ movieProperties.description }}</p>
     </div>
     <div class="movie">
-
+      <!-- The main movie iframe -->
       <iframe [width]="width" [height]="height" [src]="safeMovieUrl" allowfullscreen="1"
               allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
     </div>
   </div>
 
   <div class="ad" *ngIf="movieAd">
-    <div (click)="redirectToAd()" style="cursor: pointer;">
-      <iframe [width]="width" [height]="height" frameborder="0" [src]="adUrlSafeUrl" allowfullscreen></iframe>
+    <div style="position: relative; cursor: pointer;" (click)="redirectToAd()">
+      <!-- The advertisement iframe -->
+      <iframe
+        [width]="width"
+        [height]="height"
+        frameborder="0"
+        [src]="adUrlSafeUrl"
+        allow="autoplay; fullscreen;">
+      </iframe>
+      <div
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: transparent;">
+      </div>
     </div>
+
     <button *ngIf="showSkipButton" (click)="removeAd()" class="skip-btn">
       Skip Ad
     </button>
   </div>
-
 </div>
-
-
-
