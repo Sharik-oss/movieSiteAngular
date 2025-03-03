@@ -49,16 +49,13 @@ export class MoviesListComponent implements OnInit {
   toggleSelection(genre: string) {
     if (this.selectedGenres.includes(genre)) {
       this.selectedGenres = this.selectedGenres.filter(g => g !== genre);
-      console.log(this.selectedGenres);
     } else {
       this.selectedGenres.push(genre);
-      console.log(this.selectedGenres);
     }
   }
 
   removeSelection(genre: string) {
     this.selectedGenres = this.selectedGenres.filter(g => g !== genre);
-    console.log(this.selectedGenres);
   }
 
   movies: any;
@@ -66,7 +63,6 @@ export class MoviesListComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const genreParam = params.get('genre');
-      console.log(genreParam);
 
       if (genreParam) {
         this.selectedGenres = genreParam.split(',').map(genre => genre.trim()); // Convert string to array
@@ -128,7 +124,6 @@ export class MoviesListComponent implements OnInit {
   getMovieByName(){
     this.movieService.getMovies().subscribe((data: any) => {
       const movieName = this.movieName.value;
-      console.log(movieName);
       if (movieName) {
         const trimmedMovieName = movieName.trim(); // Remove trailing spaces
 

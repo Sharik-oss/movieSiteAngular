@@ -6,7 +6,7 @@ import {IMovies} from '../swiper/helper/interfaces/movies.interface';
   providedIn: 'root',
 })
 export class PopularService {
-  private url = 'http://localhost:1043/movie';
+  private url = 'https://backend.ultrafilms.pro/movie';
 
   constructor(private http: HttpClient) {}
 

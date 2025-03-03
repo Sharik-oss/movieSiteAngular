@@ -60,8 +60,6 @@ export class SwiperComponent implements AfterViewInit {
   async getMovies(type: any) {
     this.popularMovies.getPopularMovies().subscribe((data: any) => {
       this.moviesList = data;
-      console.log(this.moviesList);
-      // console.log(this.moviesList.filter())
     });
   }
 

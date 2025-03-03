@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class SingleMovieService {
-  url = "http://localhost:1043";
+  url = "https://backend.ultrafilms.pro";
 
   constructor(private http: HttpClient) {
 

@@ -46,7 +46,7 @@
       flex-direction: column;
       color: white;
       img {
-        width: 200px;
+        width: 228px;
         height: 300px;
         object-fit: cover;
         flex-shrink: 0;
@@ -56,6 +56,9 @@
 }
 .moviePoster:hover{
   cursor: pointer;
+}
+.movie-title{
+  text-align: center;
 }
 .movie-title:hover{
   cursor: pointer;
@@ -92,15 +95,16 @@
     &__dates {
       display: flex;
       flex-wrap: nowrap; /* Prevent items from wrapping */
-      overflow-x: hidden; /* Enable horizontal scroll */
+      overflow-x: auto; /* Enable horizontal scroll */
       overflow-y: hidden;
       gap: 15px; /* Adjust gap for better fit on mobile */
       padding: 10px 0;
-
+    
       scroll-snap-type: x mandatory; /* Snap scrolling */
       -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
-
+    
       scrollbar-width: none; /* Hide scrollbar for Firefox */
+      
       &::-webkit-scrollbar {
         display: none; /* Hide scrollbar for Chrome/Safari */
       }
